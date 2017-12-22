@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: dove-config
+      #profile: test 动态加载
+      uri: http://localhost:8040/
+      label: master

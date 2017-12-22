@@ -1,0 +1,2 @@
+org.springfr# amework.boot.autoconfigure.EnableAutoConfiguration=com.jumore.dove.autocinfigure.DoveAutoConfigure
+org.springframework.cloud.bootstrap.BootstrapConfiguration=com.jumore.dove.loader.CustomPropertySourceLocator

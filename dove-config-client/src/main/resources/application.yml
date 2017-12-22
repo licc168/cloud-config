@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: dove-config-client
+  thymeleaf:
+    cache: false
+server:
+  port: 8002
+
