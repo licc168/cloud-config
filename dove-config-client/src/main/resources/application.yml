@@ -3,6 +3,10 @@ spring:
     name: dove-config-client
   thymeleaf:
     cache: false
+  devtools:
+    restart:
+      enabled: true
+      exclude: WEB-INF/**
 server:
   port: 8002
 

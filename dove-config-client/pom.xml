@@ -52,7 +52,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.jumore.dove</groupId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.licc.dove</groupId>
 			<artifactId>dove-spring-boot-starter</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
