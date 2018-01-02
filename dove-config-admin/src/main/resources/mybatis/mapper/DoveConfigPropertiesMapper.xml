@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DoveConfigPropertiesMapper">
+  <resultMap id="BaseResultMap" type="com.licc.dove.vo.DoveConfigPropertiesVO">
+    <id column="id" property="id" jdbcType="BIGINT"/>
+    <result column="config_app_id" property="configAppId" jdbcType="BIGINT"/>
+    <result column="pro_key" property="proKey" jdbcType="VARCHAR"/>
+    <result column="pro_value" property="proValue" jdbcType="VARCHAR"/>
+    <result column="appName" property="appName" jdbcType="VARCHAR"/>
+    <result column="appProfile" property="appProfile" jdbcType="VARCHAR"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    t.id  ,  t.config_app_id  , t.pro_key, t.pro_value
+  </sql>
+
+  <select id="findList" parameterType="Object" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    ,t1.application as appName,t1.profile as appProfile
+    from dove_config_propertie t,dove_config_app t1
+    where t.delete_flag = 0 and t1.delete_flag = 0 and t.config_app_id = t1.id
+    <if test="appName != null and appName != ''">
+        and    t1.application  like CONCAT('%', #{appName, jdbcType=VARCHAR}, '%')
+
+    </if>
+    <if test="appProfile != null and appProfile != ''">
+        and    t1.profile = #{appProfile}
+
+    </if>
+    <if test="proKey != null and proKey != ''">
+      and    t1.profile like CONCAT('%', #{appProfile, jdbcType=VARCHAR}, '%')
+    </if>
+
+  </select>
+
+</mapper>

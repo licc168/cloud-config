@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MenuMapper">
+  <resultMap id="BaseResultMap" type="com.licc.dove.vo.MenuVO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="parentName" property="parentName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    t.id  ,  t.name  , t.path, t.order_num, t.parent_id ,t.icon
+  </sql>
+
+  <select id="findList" parameterType="Object" resultMap = "BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+     ,t1.name as parentName
+    from  dove_menu t
+    LEFT JOIN dove_menu t1 on t.parent_id = t1.id  and t1.delete_flag = 0
+  </select>
+
+</mapper>

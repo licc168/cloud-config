@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+		<meta charset="utf-8" />
+		<title>配置中心-环境管理</title>
+		<meta name="keywords" content="配置中心" />
+		<meta name="description" content="配置中心" />
+    <div th:replace="static"></div>
+	</head>
+<body>
+<div th:replace="header"></div>
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+      try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+		</script>
+
+		<div class="main-container-inner">
+			<a class="menu-toggler" id="menu-toggler" href="#">
+				<span class="menu-text"></span>
+			</a>
+		</div>
+		<div th:include="sidebar"></div>
+	</div>
+<div class="main-content">
+		<div class="breadcrumbs" id="breadcrumbs">
+  			<script type="text/javascript">
+          try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+  			</script>
+
+  			<ul class="breadcrumb">
+  				<li>
+  					<i class="icon-home home-icon"></i>
+  					<a href="#">首页</a>
+  				</li>
+  					<li>配置中心</li>
+  				<li class="active">环境管理</li>
+  			</ul><!-- .breadcrumb -->
+
+
+  		</div>
+		<div class="page-content">
+
+
+  						<div class="row">
+  							<div class="col-xs-12">
+
+  								<!-- PAGE CONTENT BEGINS -->
+           <button class="btn btn-primary" onclick="add()" >增加</button>
+             										<h3 class="header smaller lighter blue"></h3>
+
+<label>环境名称：</label>                    <input type="text" name="name" />
+<label>环境：</label>                    <input type="text" name="profile" />
+<button class="btn btn-xs btn-info" onclick="doSearch()">搜索</button>
+  								<div class="row">
+  									<div class="col-xs-12">
+  										<h3 class="header smaller lighter blue"></h3>
+  										<div class="table-header">
+  										</div>
+  										<div class="table-responsive">
+  										<table id="table_id_example" class="display">
+                          <thead>
+                              <tr>
+                                  <th>环境名称</th>
+                                   <th>环境</th>
+                                   <th>操作</th>
+                              </tr>
+                          </thead>
+
+                      </table>
+  										</div>
+  									</div>
+  								</div>
+
+  							</div><!-- /.col -->
+  						</div><!-- /.row -->
+  					</div><!-- /.page-content -->
+
+
+		</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">新增</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="form-group">
+                 <label > 环境名称:  </label>
+                    <input type="text" class="form-control" id="name" placeholder="环境名称"/>
+                </div>
+                <div class="form-group">
+                   <label > 环境:  </label>
+                      <input type="text" class="form-control" id="profile" placeholder="环境"/>
+
+                </div>
+
+
+            </div>
+             <input type="text"  id="id" style="display: none"/>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="modalClose()" >关闭</button>
+                <button type="button" class="btn btn-primary" id="save" onclick="save()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+   <div th:replace="script"></div>
+
+
+
+
+</html>
+<script type="text/javascript" src = "/js/config/env.js"></script>
+

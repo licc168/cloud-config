@@ -1,0 +1,48 @@
+<div class="sidebar" id="sidebar">
+  <script type="text/javascript">
+    try {
+      ace.settings.check('sidebar', 'fixed')
+    } catch (e) {
+    }
+  </script>
+
+
+  <ul class="nav nav-list">
+
+    <li th:each="menu,iterStat : ${menus}" th:data="${menu.path}" th:class="${#strings.contains(menuPath,menu.path) ?'active':''}">
+      <!--没有下级菜单的-->
+      <a th:unless ="${menu.children.size()>0}" th:href="${menu.path}"  >
+        <i th:class="${menu.icon}"></i>
+        <span class="menu-text" th:text="${menu.name}">  </span>
+      </a>
+      <!--有下级菜单-->
+      <a th:if ="${menu.children.size()>0}" href="#" class="dropdown-toggle">
+        <i th:class="${menu.icon}"></i>
+        <span class="menu-text" th:text="${menu.name}">  </span>
+        <b class="arrow icon-angle-down"></b>
+      </a>
+      <ul class="submenu" th:if ="${menu.children.size()>0}">
+        <li th:each="children,iterStat : ${menu.children}" th:class="${#strings.contains(menuPath,children.path) ?'active':''}" >
+          <a th:href="${children.path}" th:text="${children.name}">
+            <i class="icon-double-angle-right" ></i>
+
+          </a>
+        </li>
+
+      </ul>
+    </li>
+
+  </ul><!-- /.nav-list -->
+
+  <div class="sidebar-collapse" id="sidebar-collapse">
+    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+       data-icon2="icon-double-angle-right"></i>
+  </div>
+
+  <script type="text/javascript">
+    try {
+      ace.settings.check('sidebar', 'collapsed')
+    } catch (e) {
+    }
+  </script>
+</div>
