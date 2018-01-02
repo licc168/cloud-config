@@ -1,2 +1,1 @@
-# 配置中心,配置服务
-- 2017-12-21 搭建cloud config基础平台 
+# [配置中心-WIKI](https://github.com/licc168/cloud-config/wiki) 
