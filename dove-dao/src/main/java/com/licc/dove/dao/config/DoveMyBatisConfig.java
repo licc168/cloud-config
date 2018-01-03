@@ -22,9 +22,7 @@ import com.licc.dove.dao.ParamMap;
 @Configuration
 public  class DoveMyBatisConfig implements TransactionManagementConfigurer {
 
-	// // 配置类型别名
-	// @Value("${mybatis.typeAliasesPackage}")
-	// private String typeAliasesPackage;
+
 
 
   @Resource
@@ -56,10 +54,13 @@ public  class DoveMyBatisConfig implements TransactionManagementConfigurer {
 			org.springframework.core.io.Resource[] resources2 = resolver
 					.getResources("classpath:/mybatis/mapper/CommonEntityMapper.xml");
 			int length = resources1.length + resources2.length;
-			org.springframework.core.io.Resource[] resources = Arrays.copyOf(resources1, length);
-			System.arraycopy(resources2, 0, resources, resources1.length, resources2.length);
-			bean.setMapperLocations(resources);
-
+			if("CommonEntityMapper.xml".equals(resources1[0].getFilename())){
+				bean.setMapperLocations(resources2);
+			}else {
+				org.springframework.core.io.Resource[] resources = Arrays.copyOf(resources1, length);
+				System.arraycopy(resources2, 0, resources, resources1.length, resources2.length);
+				bean.setMapperLocations(resources);
+			}
 			return bean.getObject();
 		} catch (Exception e) {
 			e.printStackTrace();

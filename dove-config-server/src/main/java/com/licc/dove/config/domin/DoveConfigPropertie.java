@@ -1,12 +1,14 @@
-package com.licc.dove.domain;
+package com.licc.dove.config.domin;
 
+
+import java.util.Date;
 
 
 import com.licc.dove.dao.anno.Column;
 import com.licc.dove.dao.anno.Id;
 import com.licc.dove.dao.anno.Sequence;
 import com.licc.dove.dao.anno.Table;
-import java.util.Date;
+
 import lombok.Data;
 
 @Data

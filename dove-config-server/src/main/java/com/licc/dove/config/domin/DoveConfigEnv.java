@@ -1,4 +1,4 @@
-package com.licc.dove.domain;
+package com.licc.dove.config.domin;
 
 import java.util.Date;
 

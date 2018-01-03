@@ -5,3 +5,4 @@ spring:
       profile: dev #动态加载
       uri: http://localhost:8040/
       label: master
+      custom: true

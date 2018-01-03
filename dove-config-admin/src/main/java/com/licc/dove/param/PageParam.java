@@ -1,7 +1,5 @@
 package com.licc.dove.param;
 
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 
 import lombok.Data;
 
@@ -15,9 +13,6 @@ import lombok.Data;
 public class PageParam  extends BaseParam {
     private Integer page = 0;
     private Integer size = 10;
-    private Sort sort;
 
-    public PageRequest transPageRequest() {
-            return new PageRequest(this.page, this.size, this.sort);
-    }
+
 }

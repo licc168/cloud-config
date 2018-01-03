@@ -1,6 +1,5 @@
 package com.licc.dove.dao.config;
 
-import org.springframework.stereotype.Component;
 
 /**
  *

@@ -1,4 +1,4 @@
-package com.licc.dove.domain;
+package com.licc.dove.config.domin;
 
 import java.util.Date;
 
@@ -11,13 +11,15 @@ import com.licc.dove.dao.anno.Table;
 import lombok.Data;
 
 @Data
-@Table(name = "dove_config_env")
-public class DoveConfigEnv {
+
+@Table(name = "dove_config_env_ip")
+public class DoveConfigEnvIp {
     @Id
     @Sequence()
     private Long    id;
-    String          name;
-    String          profile;
+    @Column(name = "config_env_id")
+    Long            configEnvId;
+    String          ip;
 
     @Column(name = "delete_flag")
     private Boolean deleteFlag;

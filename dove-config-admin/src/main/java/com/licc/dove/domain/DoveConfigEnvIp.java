@@ -2,8 +2,6 @@ package com.licc.dove.domain;
 
 import java.util.Date;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import com.licc.dove.dao.anno.Column;
 import com.licc.dove.dao.anno.Id;
@@ -29,12 +27,10 @@ public class DoveConfigEnvIp {
      * 创建时间
      */
     @Column(name = "create_time")
-    @CreatedDate
     private Date    createTime;
     /**
      * 修改时间
      */
     @Column(name = "update_time")
-    @LastModifiedDate
     private Date    updateTime;
 }

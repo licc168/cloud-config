@@ -13,8 +13,6 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 
 /**
@@ -47,13 +45,11 @@ public class User   implements Serializable {
      * 创建时间
      */
     @Column(name = "create_time")
-    @CreatedDate
     private Date createTime;
     /**
      * 修改时间
      */
     @Column(name = "update_time")
-    @LastModifiedDate
     private Date updateTime;
 
 
