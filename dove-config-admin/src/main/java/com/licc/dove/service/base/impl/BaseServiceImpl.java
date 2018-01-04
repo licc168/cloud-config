@@ -21,7 +21,8 @@ public  class BaseServiceImpl<T> implements IBaseService<T>  {
   CommonDao commonDao;
   @Override
   public void deleteById(Long id) {
-    commonDao.delete(id);
+    T t = commonDao.get(DTOClass,id);
+    commonDao.delete(t);
   }
 
   @Override

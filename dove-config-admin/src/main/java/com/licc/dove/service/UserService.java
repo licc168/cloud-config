@@ -1,7 +1,6 @@
 package com.licc.dove.service;
 
 
-import com.licc.dove.dao.CommonDao;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import com.licc.dove.dao.CommonDao;
 import com.licc.dove.domain.User;
 import com.licc.dove.param.UserParam;
 import com.licc.dove.service.base.impl.BaseServiceImpl;

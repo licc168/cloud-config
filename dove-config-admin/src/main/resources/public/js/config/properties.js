@@ -5,6 +5,7 @@ var options = {
   "aoColumns": [
     { data: 'appName' },
     { data: 'appProfile' },
+    { data: 'appLable' },
     { data: 'proKey' },
     { data: 'proValue' },
     { data: null,"bSortable": false, "mRender":function(data,type,full){

@@ -23,5 +23,5 @@ public class DoveConfigPropertiesVO {
 
   String appName;
   String appProfile;
-
+  String appLable;
 }

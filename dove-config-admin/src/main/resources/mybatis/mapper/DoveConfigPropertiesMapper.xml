@@ -9,6 +9,8 @@
     <result column="pro_value" property="proValue" jdbcType="VARCHAR"/>
     <result column="appName" property="appName" jdbcType="VARCHAR"/>
     <result column="appProfile" property="appProfile" jdbcType="VARCHAR"/>
+    <result column="appLable" property="appLable" jdbcType="VARCHAR"/>
+
   </resultMap>
   <sql id="Base_Column_List">
     t.id  ,  t.config_app_id  , t.pro_key, t.pro_value
@@ -17,7 +19,7 @@
   <select id="findList" parameterType="Object" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
-    ,t1.application as appName,t1.profile as appProfile
+    ,t1.application as appName,t1.profile as appProfile,t1.lable as appLable
     from dove_config_propertie t,dove_config_app t1
     where t.delete_flag = 0 and t1.delete_flag = 0 and t.config_app_id = t1.id
     <if test="appName != null and appName != ''">
